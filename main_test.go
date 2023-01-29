@@ -19,7 +19,7 @@ func TestRouter(t *testing.T) {
 	// The mock server we created runs a server and exposes its location in the
 	// URL attribute
 	// We make a GET request to the "hello" route we defined in the router
-	resp, err := http.Get(mockServer.URL + "/hello")
+	resp, err := http.Get(mockServer.URL + "/")
 
 	// Handle any unexpected error
 	if err != nil {
@@ -56,7 +56,7 @@ func TestRouterForNonExistentRoute(t *testing.T) {
 	mockServer := httptest.NewServer(r)
 	// Most of the code is similar. The only difference is that now we make a
 	//request to a route we know we didn't define, like the `POST /hello` route.
-	resp, err := http.Post(mockServer.URL+"/hello", "", nil)
+	resp, err := http.Post(mockServer.URL+"/", "", nil)
 
 	if err != nil {
 		t.Fatal(err)

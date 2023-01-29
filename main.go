@@ -12,7 +12,7 @@ import (
 // to instantiate and test the router outside of the main function
 func newRouter() *mux.Router {
 	r := mux.NewRouter()
-	r.HandleFunc("/hello", handler).Methods("GET")
+	r.HandleFunc("/", handler).Methods("GET")
 
 	// Declare the static file directory and point it to the
 	// directory we just made
