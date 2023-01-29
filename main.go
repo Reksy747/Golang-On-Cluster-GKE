@@ -2,42 +2,48 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/gorilla/mux"
 )
 
-// The new router function creates the router and
-// returns it to us. We can now use this function
-// to instantiate and test the router outside of the main function
+// fungsi newRouter untuk melempar ke root
 func newRouter() *mux.Router {
 	r := mux.NewRouter()
 	r.HandleFunc("/", handler).Methods("GET")
 
-	// Declare the static file directory and point it to the
-	// directory we just made
+	//fungsi route untuk menggunakan staticfile
 	staticFileDirectory := http.Dir("./portofolio/")
-	// Declare the handler, that routes requests to their respective filename.
-	// The fileserver is wrapped in the `stripPrefix` method, because we want to
-	// remove the "/portofolio/" prefix when looking for files.
-	// For example, if we type "/portofolio/index.html" in our browser, the file server
-	// will look for only "index.html" inside the directory declared above.
-	// If we did not strip the prefix, the file server would look for
-	// "./portofolio/portofolio/index.html", and yield an error
 	staticFileHandler := http.StripPrefix("/portofolio/", http.FileServer(staticFileDirectory))
-	// The "PathPrefix" method acts as a matcher, and matches all routes starting
-	// with "/portofolio/", instead of the absolute route itself
 	r.PathPrefix("/portofolio/").Handler(staticFileHandler).Methods("GET")
 	return r
 }
 
 func main() {
-	// The router is now formed by calling the `newRouter` constructor function
-	// that we defined above. The rest of the code stays the same
+	// memanggil fungsi konstruktor `newRouter` yang telah definisikan di atas
+	// membuat server berjalan pada port 8080
 	r := newRouter()
-	http.ListenAndServe(":8080", r)
+	log.Print("Listening on :8080...")
+	err := http.ListenAndServe(":8080", r)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
+// fungsi untuk membuat tulisan "helloworld" yang akan di tampilkan pada route ("/")
 func handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Hello World!")
 }
+
+//Buat route portofolio ke root server("/")
+// func main() {
+// 	fs := http.FileServer(http.Dir("./portofolio"))
+// 	http.Handle("/", fs)
+
+// 	log.Print("Listening on :3000...")
+// 	err := http.ListenAndServe(":3000", nil)
+// 	if err != nil {
+// 		log.Fatal(err)
+// 	}
+// }
