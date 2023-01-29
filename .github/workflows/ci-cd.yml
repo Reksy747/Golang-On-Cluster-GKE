@@ -32,4 +32,4 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: reksy737/simpelgoweb:latest
+          tags: reksy737/simpelgoweb:${{github.run_number}}
