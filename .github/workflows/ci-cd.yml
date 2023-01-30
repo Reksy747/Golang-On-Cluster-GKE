@@ -55,4 +55,4 @@ jobs:
       
       - name: deploy new image
         run: |-
-          kubectl set image deployment/web-reksy app=reksy737/simpelgoweb:build${{github.run_number}} -n staging
+          kubectl set image deployment/web-reksy app=reksy737/simpelgoweb:build${{github.run_number}}  -n staging
