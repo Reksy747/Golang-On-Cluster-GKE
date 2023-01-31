@@ -3,7 +3,13 @@
 
 Dalam proyek ini saya membuat aplikasi golang yang menampilkan "helloworld" pada path ("/") dengan menggunakan library dari mux dan juga menampilkan halaman portofolio di path ("/portofolio/") dan fungsi github Action golang yang dibuat memiliki fungsi tes yang akan menguji koneksi pada setiap path yang saya buat sebelumnya dan menggunakan CI/CD untuk mendeploy aplikasi ke GKE.
 
-
+# Tools yang di gunakan
+- Golang 1.19
+- Docker
+- Docker hub
+- Github action
+- GKE
+- GCP
 
 # Demo
 - setup enviroment kubernetes disini saya menggunakann GKE untuk menjalankan cluster dan simpan di secret github dan juga simpan secret dari nama project yang di buat kedalam secret
