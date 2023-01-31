@@ -56,3 +56,10 @@ jobs:
       - name: deploy new image
         run: |-
           kubectl set image deployment/web-reksy app=reksy737/simpelgoweb:build${{github.run_number}}  -n staging
+            
+      - name: Check if website run
+        run: |-
+          EXTERNAL_IP=$(kubectl get service reksy-web -n staging -ojsonpath="{.status.loadBalancer.ingress[0].ip}")
+          DOMAIN="${EXTERNAL_IP}.sslip.io"
+          curl $DOMAIN
+          echo $DOMAIN
