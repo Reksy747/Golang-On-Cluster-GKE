@@ -1,7 +1,7 @@
 
 # Ci/Cd Simple Website Menggunakan Golang,Docker,dan GKE
 
-Dalam proyek ini saya membuat aplikasi golang yang menampilkan "helloworld" pada path ("/") dengan menggunakan library dari mux dan juga menampilkan halaman portofolio di path ("/portofolio/") dan fungsi github Action golang yang dibuat memiliki fungsi tes yang akan menguji koneksi pada setiap path yang saya buat sebelumnya.
+Dalam proyek ini saya membuat aplikasi golang yang menampilkan "helloworld" pada path ("/") dengan menggunakan library dari mux dan juga menampilkan halaman portofolio di path ("/portofolio/") dan fungsi github Action golang yang dibuat memiliki fungsi tes yang akan menguji koneksi pada setiap path yang saya buat sebelumnya dan menggunakan CI/CD untuk mendeploy aplikasi ke GKE.
 
 
 
