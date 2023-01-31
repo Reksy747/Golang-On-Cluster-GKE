@@ -88,3 +88,9 @@ curl $DOMAIN
 echo $DOMAIN
 ```
 
+## Contoh jika sudah running websitenya
+http://34.143.162.246.sslip.io/
+![pada halaman helloworld](https://github.com/Reksy747/simple_website_go/blob/main/img/image1.PNG?raw=true)
+
+http://34.143.162.246.sslip.io/portofolio/
+![pada halaman portofolio](https://github.com/Reksy747/simple_website_go/blob/main/img/image2.PNG?raw=true)
